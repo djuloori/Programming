@@ -1,0 +1,5 @@
+Male Count 172
+Female Count 71
+Average Income Per Location :27936.07280436198
+Maxmimum Salary is 266222.8	Minimum Salary is 5014.21
+
