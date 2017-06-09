@@ -15,7 +15,7 @@ public class Solution {
         Stack<Character> mystack = new Stack<>();
         Stack<Integer>  indexstack = new Stack<>();
 
-        if(S.charAt(0) == '}' || S.charAt(0) == ']' || S.charAt(0) == ')'){ //40 41 91 93 123 125
+        if(S.charAt(0) == '}' || S.charAt(0) == ']' || S.charAt(0) == ')'){ 
             evaluation(0);
             return;
         }
