@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -53,34 +52,31 @@ public class search_tree {
             }
             BinaryTree.root = nodes[0];
             inorder(BinaryTree.root);
-            evaluation();
+            if(a != "INCORRECT") {
+                System.out.println("CORRECT");
+            }else{
+                System.out.println(a);
+            }
         }
     }
-
-    static ArrayList<Integer> elements = new ArrayList<>();
+    
     static int temp = Integer.MIN_VALUE;
+    static String a = " ";
     static void inorder(BinaryTreeNode root){
         if(root == null){
             return;
         }else {
             inorder(root.Left);
-            elements.add(root.key);
+            if(root.key > temp){
+                temp = root.key;
+            }else{
+                a = "INCORRECT";
+                return;
+            }
             inorder(root.Right);
         }
     }
-
-    static void evaluation(){
-        for(int i = 0; i < elements.size(); i++){
-            if(elements.get(i) > temp){
-                temp = elements.get(i);
-            }else{
-                System.out.println("INCORRECT");
-                return;
-            }
-        }
-        System.out.println("CORRECT");
-    }
-
+    
     static class BinaryTreeNode{
         int key;
         int left_index;
