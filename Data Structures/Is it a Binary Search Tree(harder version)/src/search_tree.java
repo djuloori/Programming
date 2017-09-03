@@ -89,24 +89,28 @@ public class search_tree {
                             temp = elements.get(i);
                         } else {
                             a = "INCORRECT";
+                            return;
                         }
                     }else if(elements.get(i).Left!=null && temp.Left==null){
                         if(elements.get(i).Left.key < elements.get(i).key){
                             temp = elements.get(i);
                         }else{
                             a = "INCORRECT";
+                            return;
                         }
                     }else if(elements.get(i).Left==null && temp.Left!=null){
                         if(temp.Left.key < temp.key){
                             temp = elements.get(i);
                         }else{
                             a = "INCORRECT";
+                            return;
                         }
                     }else{
                         if(elements.get(i).key >= temp.key){
                             temp = elements.get(i);
                         }else{
                             a = "INCORRECT";
+                            return;
                         }
                     }
                 }else{
