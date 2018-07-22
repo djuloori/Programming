@@ -1,5 +1,5 @@
 public class StackImpl implements Stack{
-   Node ptr = null;
+   Node ptr;
 
     @Override
     public void push(int x) {
