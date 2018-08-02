@@ -1,28 +1,24 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class Toposort {
     private static ArrayList<Integer> toposort(ArrayList<Integer>[] adj) {
         boolean used[] = new boolean[adj.length];
-        ArrayList<Integer> result = new ArrayList();
-        Stack order = new Stack();
-        for(int i = 0; i <  adj.length; i++){
+        ArrayList<Integer> order = new ArrayList();
+        for(int i = adj.length-1; i >= 0; i--){
             if(!used[i]) dfs(adj,used,order,i);
         }
-        while(!order.empty()){
-            result.add((Integer) order.pop());
-        }
-
-        return result;
+        Collections.reverse(order);
+        return order;
     }
 
-    private static void dfs(ArrayList<Integer>[] adj, boolean[] used, Stack order, int s) {
-        used[s] = true;
+    private static void dfs(ArrayList<Integer>[] adj, boolean[] used, ArrayList<Integer> order, int s) {
         for(int j : adj[s]){
             if(!used[j]) dfs(adj,used,order,j);
         }
-        order.push(s);
+        used[s] = true;
+        order.add(s);
     }
 
     public static void main(String[] args) {
